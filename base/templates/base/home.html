@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<div>
+    <div>
+        {% for dorms in dorms %}
+        <div>
+            <h3>{{droms.id}} -- <a href="{% url 'dorms' dorms.id %}">{{dorms.name}}</a></h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
