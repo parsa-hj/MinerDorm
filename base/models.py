@@ -12,12 +12,16 @@ class Dorm(models.Model):
 
 
 class Review(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    dorm = models.ForeignKey(Dorm, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE, null=True, blank=True)
+    dorm = models.ForeignKey(Dorm, related_name='reviews', on_delete=models.CASCADE, null=True, blank=True)
+    title = models.CharField(max_length=200, null=True, blank=True)
     body = models.TextField(null=True, blank=True)
-    rating = models.IntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(5)])
+    rating = models.IntegerField(null=True, blank=True)
     updated = models.DateTimeField(auto_now=True, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']
     
 
     def __str__(self):

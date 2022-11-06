@@ -7,7 +7,7 @@
     <div>
         {% for dorms in dorms %}
         <div>
-            <h3>{{droms.id}} -- <a href="{% url 'dorms' dorms.id %}">{{dorms.name}}</a></h3>
+            <h3><a href="{% url 'dorms' dorms.id %}">{{dorms.name}}</a></h3>
             <small>{{dorms.review.rating}}</small>
             <hr>
         </div>

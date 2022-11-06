@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Dorm
+from django.shortcuts import render, redirect
+from .models import Dorm, Review
 from .forms import DormForm
 
 def home(request):
@@ -10,10 +10,18 @@ def home(request):
 
 def dorms(request, pk):
     dorms = Dorm.objects.get(id=pk)
+
+    #add review
+
+    if request.method == 'POST':
+        rating = request.POST.get('ratings', 3)
+        body = request.POST.get('body', '')
+        title = request.POST.get('title', '')
+        
+
+        review = Review.objects.create(dorm=dorms, user=request.user, rating=rating, body=body, title=title)
+
+        return redirect('dorms', pk=pk)
+
     context = {'dorms': dorms}
     return render(request, 'base/dorms.html', context)
-
-def writeReview(request):
-    form = DormForm()
-    context = {'form':form}
-    return render(request, 'base/dorms_form.html', context)

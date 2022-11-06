@@ -4,8 +4,83 @@
 {% block content %}
 
 <h1>{{dorms.name}}</h1>
+<h4>{{dorms.address}}</h4>
+<p>{{dorms.description}}</p>
 
-<a href="{% url 'write-review' %}">Write a reviw</a>
+<hr>
+
+<h2 class="subtitle">Reviews</h2>
+
+<div class="wrapper">
+    {% for review in dorms.reviews.all %}
+        <div class="notification">
+            <p>
+                <strong>Title: </strong>{{ review.title }},
+                <strong>Quality: </strong>{{ review.rating }},
+                <strong>Date: </strong>{{ review.created|date:"Y-m-d" }},
+            </p>
+
+            {{ review.body }}
+        </div>
+    {% empty %}
+        <div class="notification">
+            No reviews yet ...
+        </div>
+
+    {% endfor %}
+</div>
+
+<br>
+<hr>
+<br>
+
+<div class="container">
+    <form method="post" action=".">
+        {% csrf_token %}
+
+
+        <h2>Leave a review</h2>
+
+        <div class="field">
+            <label>Title</label>
+
+            <div class="control">
+                <input type="text" name="title">
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Quality</label>
+
+            <div class="control">
+                <div class="select">
+                    <select name="ratings">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>Content</label>
+
+            <div class="control">
+                <textarea class="textarea" name="body"></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-success">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
 
 
 
