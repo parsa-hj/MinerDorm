@@ -3,7 +3,10 @@ from .models import Dorm, Review
 from .forms import DormForm
 
 def home(request):
-    dorms = Dorm.objects.all()
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+
+    dorms = Dorm.objects.filter(name__contains=q)
+
     context = {'dorms': dorms}
     return render(request, 'base/home.html', context)
 
