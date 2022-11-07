@@ -4,6 +4,7 @@
 
 .image1 {
     width: 100%;
+    max-width: 400px;
     height: auto;
     left: 0px;
     top: 133px;

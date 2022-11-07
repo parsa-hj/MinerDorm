@@ -1,7 +1,10 @@
 {% extends 'main.html' %}
 
+{% load static %}
 
 {% block content %}
+
+
 
 <h1>{{dorms.name}}</h1>
 <h4>{{dorms.address}}</h4>
@@ -10,6 +13,8 @@
 <hr>
 
 <h2 class="subtitle">Reviews</h2>
+
+
 
 <div class="wrapper">
     {% for review in dorms.reviews.all %}
@@ -40,6 +45,18 @@
 
 
         <h2>Leave a review</h2>
+
+        <div class="mb-3">
+            <input type="text" class="form-control mt-3" placeholder="Title">
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control" rows="5" name="text" placeholder="Review"></textarea>
+        </div>
+        <button type="button" class="btn btn-success">Submit</button>
+
+
+
+
 
         <div class="field">
             <label>Title</label>
