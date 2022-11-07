@@ -1,4 +1,39 @@
-body {
-    background-color: rgb(108, 151, 116);
+.card {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.image1 {
+    width: 100%;
+    height: auto;
+    left: 0px;
+    top: 133px;
+    background-blend-mode: darken;
+    filter: brightness(50%);
+
+}
+
+.searchbar1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text1 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2vw;
+    line-height: 1vw;
+    line-height: 48px;
+    /* letter-spacing: -0.04em; */
+    color: #FFFFFF;
+}
+
+.navbar {
+    --bs-navbar-padding-y: 1rem;
+}

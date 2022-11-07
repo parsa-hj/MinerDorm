@@ -6,26 +6,53 @@
 {% block content %}
 
 <div>
-
+  <img src="{% static 'images/dorm1.jpg' %}" class="img-fluid image1" alt="Responsive image">
+  
+  <div class="searchbar1">
     <form method="GET" action="{% url 'home' %}">
-        <input type="text" name="q" placeholder="Search for your dorm ... " />
+      <div class="form-group">
+         <input type="text" name="q" class="form-control" id="inputdefault" placeholder="Search for your dorm"/>
+      </div>
     </form>
+  </div>
 
-    <br>
-
-
-
-    {% for dorms in dorms %}
-    <div class="card" style="width: 18rem;">
-        <img src="{% static 'images/tj.jpg' %}" class="card-img-top" alt="tj">
-        <div class="card-body">
-          <h5 class="card-title">{{dorms.name}}</h5>
-          <p class="card-text">{{dorms.address}}</p>
-          <a href="{% url 'dorms' dorms.id %}" class="btn btn-primary">Review</a>
-        </div>
-    </div>
-    {% endfor %}
+  <h1 class="text1">A Site For Missouri S&T Housing Reviews</h1>
 
 </div>
 
-{% endblock content %}
+<br>
+
+<!-- <div class="container">
+    
+    <form method="GET" action="{% url 'home' %}">
+        <input type="text" name="q" placeholder="Search for your dorm ... " />
+    </form>
+</div> -->
+
+<br>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+
+        {% for dorms in dorms %}
+        <div class="col mb-3">
+            <div class="card">
+
+                <img src="{{ dorms.image }}" class="card-img-top" alt="dorm picture" />
+
+                <div class="card-body">
+                  <h5 class="card-title">{{dorms.name}}</h5>
+                  <p class="card-text">
+                    {{dorms.address}}
+                  </p>
+                  <a href="{% url 'dorms' dorms.id %}" class="btn btn-primary stretched-link">Review</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div> 
+</div>
+
+{% endblock content %}    
+

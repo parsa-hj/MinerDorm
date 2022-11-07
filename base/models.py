@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 class Dorm(models.Model):
     name = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='static/static_images', null=True, blank=True)
     address = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
 
