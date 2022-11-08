@@ -12,6 +12,14 @@
 
 }
 
+.image2 {
+    width: 100%;
+    height: 35vw;
+    background-blend-mode: darken;
+    filter: brightness(50%);
+}
+
+
 .searchbar1 {
     position: absolute;
     top: 40%;
@@ -45,4 +53,13 @@
 #text2 {
     font-family: 'Inter';
     font-weight: 600;
+}
+
+.text3 {
+    font-family: 'Inter';
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3vw;
+    color: #000000;
 }
