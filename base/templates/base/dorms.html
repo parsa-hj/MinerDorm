@@ -12,59 +12,55 @@
 
 <hr>
 
-<h2 class="subtitle">Reviews</h2>
+
+<div class="container">
+
+    <div class="container my-5">
+      <h2 id="text2">Reviews</h2>
+    </div>
+
+    
+
+      {% for review in dorms.reviews.all %}
+          <div class="container p-5 my-5" id="review1">
+              <p>
+                  <strong>Title: </strong>{{ review.title }},
+                  <strong>Quality: </strong>{{ review.rating }},
+                  <strong>Date: </strong>{{ review.created|date:"Y-m-d" }},
+              </p>
+  
+              {{ review.body }}
+          </div>
+
+      {% empty %}
+          <div class="container">
+              No reviews yet ...
+          </div>
+  
+      {% endfor %}
 
 
-
-<div class="wrapper">
-    {% for review in dorms.reviews.all %}
-        <div class="notification">
-            <p>
-                <strong>Title: </strong>{{ review.title }},
-                <strong>Quality: </strong>{{ review.rating }},
-                <strong>Date: </strong>{{ review.created|date:"Y-m-d" }},
-            </p>
-
-            {{ review.body }}
-        </div>
-    {% empty %}
-        <div class="notification">
-            No reviews yet ...
-        </div>
-
-    {% endfor %}
 </div>
 
 <br>
 <hr>
 <br>
 
+<!-- write a review -->
 <div class="container">
     <form method="post" action=".">
         {% csrf_token %}
 
 
-        <h2>Leave a review</h2>
+        <h2 id="text2">Leave a review</h2>
 
         <div class="mb-3">
-            <input type="text" class="form-control mt-3" placeholder="Title">
+            <input type="text" name="title" class="form-control mt-3" placeholder="Title">
         </div>
         <div class="mb-3">
-            <textarea class="form-control" rows="5" name="text" placeholder="Review"></textarea>
+            <textarea class="form-control" rows="5" name="body" placeholder="Review"></textarea>
         </div>
-        <button type="button" class="btn btn-success">Submit</button>
 
-
-
-
-
-        <div class="field">
-            <label>Title</label>
-
-            <div class="control">
-                <input type="text" name="title">
-            </div>
-        </div>
 
         <div class="field">
             <label>Quality</label>
@@ -83,18 +79,11 @@
         </div>
 
         <div class="field">
-            <label>Content</label>
-
             <div class="control">
-                <textarea class="textarea" name="body"></textarea>
+                <button class="button btn btn-success">Submit</button>
             </div>
         </div>
 
-        <div class="field">
-            <div class="control">
-                <button class="button is-success">Submit</button>
-            </div>
-        </div>
     </form>
 </div>
 

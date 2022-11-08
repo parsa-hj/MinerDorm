@@ -4,7 +4,6 @@
 
 .image1 {
     width: 100%;
-    max-width: 400px;
     height: auto;
     left: 0px;
     top: 133px;
@@ -37,4 +36,13 @@
 
 .navbar {
     --bs-navbar-padding-y: 1rem;
+}
+
+#review1 {
+    background-color: #ededed;
+}
+
+#text2 {
+    font-family: 'Inter';
+    font-weight: 600;
 }
