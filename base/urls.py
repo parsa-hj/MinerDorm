@@ -4,6 +4,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    path('login/', views.loginPage, name="login"),
+    path('logout/', views.logoutUser, name="logout"),
+
     path('', views.home, name="home"),
     path('dorms/<str:pk>/', views.dorms, name="dorms"),
 ]

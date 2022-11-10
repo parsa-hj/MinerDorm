@@ -2,9 +2,11 @@
 
 <nav class="navbar navbar-expand-lg navbar-white bg-white static-top">
     <div class="container">
+      
       <a class="navbar-brand" href="/">
         <img src="{% static 'images/MinerDorm.png' %}" height="36">
       </a>
+      {% if request.user.is_authenticated %}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -20,11 +22,14 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
             </ul>
           </li>
         </ul>
       </div>
+      {% else %}
+      <a href="{% url 'login' %}">Login</a>
+      {% endif %}
     </div>
   </nav>
 

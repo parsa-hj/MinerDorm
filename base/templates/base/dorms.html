@@ -50,6 +50,7 @@
 
 <!-- write a review -->
 <div class="container">
+    {% if request.user.is_authenticated %}
     <form method="post" action=".">
         {% csrf_token %}
 
@@ -87,6 +88,9 @@
         </div>
 
     </form>
+    {% else %}
+    <p>Please sign in to add reviews!</p>
+    {% endif %}
 </div>
 
 
