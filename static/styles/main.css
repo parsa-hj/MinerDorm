@@ -63,3 +63,13 @@
     font-size: 3vw;
     color: #000000;
 }
+
+.loginnav {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Inter';
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.loginnav:hover { color: #383838; }
